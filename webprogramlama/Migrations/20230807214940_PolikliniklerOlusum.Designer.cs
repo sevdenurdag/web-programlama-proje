@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication12.Entities;
 
@@ -11,9 +12,10 @@ using WebApplication12.Entities;
 namespace WebApplication12.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230807214940_PolikliniklerOlusum")]
+    partial class PolikliniklerOlusum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +35,6 @@ namespace WebApplication12.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PoliklinikId")
-                        .HasColumnType("int");
-
                     b.Property<string>("poliklinik")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -43,7 +42,7 @@ namespace WebApplication12.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Doktorlar", (string)null);
+                    b.ToTable("Doktorlar");
                 });
 
             modelBuilder.Entity("WebApplication12.Entities.Poliklinik", b =>
@@ -59,7 +58,7 @@ namespace WebApplication12.Migrations
 
                     b.HasKey("PoliklinikId");
 
-                    b.ToTable("Poliklinikler", (string)null);
+                    b.ToTable("Poliklinikler");
                 });
 
             modelBuilder.Entity("WebApplication12.Entities.Randevu", b =>
@@ -89,7 +88,7 @@ namespace WebApplication12.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Randevular", (string)null);
+                    b.ToTable("Randevular");
                 });
 
             modelBuilder.Entity("WebApplication12.Entities.User", b =>
@@ -129,7 +128,7 @@ namespace WebApplication12.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
